@@ -1,37 +1,116 @@
-/* styles.css */
-
-/* Estilos básicos */
+/* Estilos básicos para la maquetación */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
+  font-family: 'Press Start 2P', Arial, sans-serif; /* Usamos la fuente Press Start 2P */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Asegura que el cuerpo ocupe toda la altura de la pantalla */
+  overflow-x: hidden; /* Elimina el scroll horizontal */
+}
+
+/* Header */
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.header__title {
+  margin: 0;
+}
+
+/* Navbar */
+.nav {
+  background-color: #333;
+  padding: 10px 0;
+}
+
+.nav__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav__item {
+  margin: 5px 15px;
+}
+
+.nav__link {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  display: block;
+}
+
+.nav__link:hover {
+  background-color: #555;
+}
+
+/* Main */
+.main {
+  padding: 20px;
+  flex-grow: 1;
+}
+
+/* Contenedor de Pokémon */
+.pokemon-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajusta el tamaño de las columnas para que se adapten */
+  gap: 15px; /* Ajusta el espacio entre las tarjetas */
+  padding: 10px;
+  margin-bottom: 50px;
+  width: 100%; /* Asegura que el contenedor no se desborde */
+  box-sizing: border-box; /* Incluye el padding dentro del ancho total */
+}
+
+/* Estilo para las tarjetas de los Pokémon */
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card__img {
+  width: 100px;
+  height: 100px;
+}
+
+.card__title {
+  margin: 10px 0 0;
+}
+
+/* Footer */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  margin-top: 40px;
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .nav__item {
+    margin: 5px 10px;
+  }
+
+  .nav__link {
+    padding: 8px 16px;
   }
   
-  h1 {
-    text-align: center;
-    color: #333;
+  .pokemon-container {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Ajusta las columnas en pantallas pequeñas */
   }
-  
-  #pokemon-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .card {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    background-color: #fff;
-  }
-  
-  .card img {
-    width: 100px;
-    height: 100px;
-  }
-  
+}

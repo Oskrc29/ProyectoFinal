@@ -1,16 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pokémon API</title>
-  <link rel="stylesheet" href="./src/css/styles.css"> <!-- Enlazo el archivo CSS -->
-</head>
-<body>
-  <h1>Pokémon API</h1>
-  <div id="pokemon-container"></div>
 
-  <!-- Importo el script principal -->
-  <script type="module" src="./src/js/main.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon API</title>
+    <link rel="stylesheet" href="./src/css/styles.css"> <!-- Enlazo el archivo CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1 class="header__title">Pokémon API</h1>
+        <!-- Barra de navegación -->
+        <nav class="nav">
+            <ul class="nav__list">
+                <li><a href="#agua" id="agua" class="nav__link">Agua</a></li>
+                <li><a href="#bicho" id="bicho" class="nav__link">Bicho</a></li>
+                <li><a href="#dragon" id="dragon" class="nav__link">Dragón</a></li>
+                <li><a href="#electrico" id="electrico" class="nav__link">Eléctrico</a></li>
+                <li><a href="#fantasma" id="fantasma" class="nav__link">Fantasma</a></li>
+                <li><a href="#fuego" id="fuego" class="nav__link">Fuego</a></li>
+                <li><a href="#hada" id="hada" class="nav__link">Hada</a></li>
+                <li><a href="#hielo" id="hielo" class="nav__link">Hielo</a></li>
+                <li><a href="#lucha" id="lucha" class="nav__link">Lucha</a></li>
+                <li><a href="#normal" id="normal" class="nav__link">Normal</a></li>
+                <li><a href="#planta" id="planta" class="nav__link">Planta</a></li>
+                <li><a href="#psiquico" id="psiquico" class="nav__link">Psíquico</a></li>
+                <li><a href="#roca" id="roca" class="nav__link">Roca</a></li>
+                <li><a href="#tierra" id="tierra" class="nav__link">Tierra</a></li>
+                <li><a href="#veneno" id="veneno" class="nav__link">Veneno</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <main class="main">
+        <div id="pokemon-container" class="pokemon-container"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Pokémon API. Todos los derechos reservados a Oscar Carrasco y Felipe Bustamante.</p>
+    </footer>
+
+    <!-- Importo el script principal -->
+    <script type="module" src="./src/js/main.js"></script>
+
 </body>
+
 </html>
