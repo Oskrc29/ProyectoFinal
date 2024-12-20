@@ -1,16 +1,16 @@
-/* Estilos básicos para la maquetación */
+/* Estilos para maquetación */
 body {
-  font-family: 'Press Start 2P', Arial, sans-serif; /* Usamos la fuente Press Start 2P */
+  font-family: 'Press Start 2P', Arial, sans-serif; /* Uso fuente de pokemones */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Asegura que el cuerpo ocupe toda la altura de la pantalla */
-  overflow-x: hidden; /* Elimina el scroll horizontal */
+  min-height: 100vh; /* Ocupo la altura de la pantalla */
+  overflow-x: hidden; /* Elimino scroll horizontal */
 }
 
-/* Header */
+
 .header {
   background-color: #333;
   color: #fff;
@@ -22,7 +22,7 @@ body {
   margin: 0;
 }
 
-/* Navbar */
+
 .nav {
   background-color: #333;
   padding: 10px 0;
@@ -54,21 +54,21 @@ body {
   background-color: #555;
 }
 
-/* Main */
+
 .main {
   padding: 20px;
-  flex-grow: 1;
+  flex-grow: 1;       /* Ocupo el espacio completo del contenedor*/
 }
 
 /* Contenedor de Pokémon */
 .pokemon-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajusta el tamaño de las columnas para que se adapten */
-  gap: 15px; /* Ajusta el espacio entre las tarjetas */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajusta el tamaño de las columnas*/
+  gap: 15px; /* Ajusto espacio entre las tarjetas */
   padding: 10px;
   margin-bottom: 50px;
-  width: 100%; /* Asegura que el contenedor no se desborde */
-  box-sizing: border-box; /* Incluye el padding dentro del ancho total */
+  width: 100%; 
+  box-sizing: border-box; 
 }
 
 /* Estilo para las tarjetas de los Pokémon */
@@ -89,7 +89,7 @@ body {
   margin: 10px 0 0;
 }
 
-/* Footer */
+
 .footer {
   background-color: #333;
   color: #fff;
@@ -100,7 +100,7 @@ body {
   margin-top: 40px;
 }
 
-/* Media Query para pantallas pequeñas */
+
 @media (max-width: 768px) {
   .nav__item {
     margin: 5px 10px;
@@ -111,6 +111,6 @@ body {
   }
   
   .pokemon-container {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Ajusta las columnas en pantallas pequeñas */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
   }
 }

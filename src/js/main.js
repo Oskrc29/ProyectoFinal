@@ -1,10 +1,10 @@
 import { waitForDelay } from "./delay.js"; // Importo la promesa desde delay.js
 
-// Aquí almacenaremos todos los Pokémon
+// Almaceno los Pokémon
 let allPokemons = [];
 let filteredPokemons = [];
 
-// Mapa de colores para cada tipo de Pokémon
+// Defino colores para tipos de pokemones
 const typeColors = {
   fire: "#f57c00",
   water: "#2196f3",
@@ -29,35 +29,35 @@ const typeColors = {
 // Función principal para traer y mostrar resultados
 async function fetchPokemons() {
   const container = document.getElementById("pokemon-container"); // Creo contenedor para las tarjetas
-  const totalPokemons = 151;  // Queremos los primeros 151 Pokémon
-  const apiURL = `https://pokeapi.co/api/v2/pokemon?limit=${totalPokemons}&offset=0`; // Llamada a la API para obtener los primeros 151
+  const totalPokemons = 151;  // cantidad de pokemones
+  const apiURL = `https://pokeapi.co/api/v2/pokemon?limit=${totalPokemons}&offset=0`; // Llamo la API para traer 151 pokemones
 
   try {
-    const response = await fetch(apiURL); // Llamamos a la API
+    const response = await fetch(apiURL); // Llamo la API
 
     if (!response.ok) {
       throw new Error(`Error en la solicitud: ${response.status}`); // Valido errores en la respuesta
     }
 
-    const data = await response.json(); // Convertimos la respuesta a JSON
+    const data = await response.json(); // Convertimos en JSON
     const pokemonPromises = data.results.map(async (pokemon) => {
       try {
-        const res = await fetch(pokemon.url); // Hacer fetch para cada Pokémon
-        return res.json(); // Devuelve el Pokémon
+        const res = await fetch(pokemon.url); // Ocupo fetch para cada Pokémon
+        return res.json(); // Retorno el Pokémon
       } catch (error) {
         console.error(`Error al obtener el Pokémon ${pokemon.name}:`, error.message);
-        return null; // Si ocurre un error, devuelve null para ese Pokémon
+        return null; // Si tengo error, devuelvo null para ese Pokémon
       }
     });
 
-    // Esperamos a que se resuelvan todas las promesas para obtener los detalles de los Pokémon
+    // Espero promesa para obtener los resultaddos
     const pokemons = await Promise.all(pokemonPromises);
 
-    // Filtramos los resultados válidos (no nulos) de las promesas que fallaron
+    // Filtramos los resultados 
     allPokemons = pokemons.filter(pokemon => pokemon !== null);
 
-    // Llamada a la promesa adicional para hacer una espera artificial antes de renderizar
-    await waitForDelay(1000); // Aquí agregamos la espera simulada
+    // Llamo la promesa adicional para hacer una espera antes del render
+    await waitForDelay(1000); // Genero espera de 1 seg
 
     // Inicializamos los Pokémon filtrados con todos los Pokémon al principio
     filteredPokemons = allPokemons;
@@ -69,9 +69,9 @@ async function fetchPokemons() {
   }
 }
 
-// Función para renderizar las tarjetas de los Pokémon
+// Función para renderizar las tarjetas
 function renderPokemons(pokemons, container) {
-  container.innerHTML = ""; // Limpiamos el contenedor antes de mostrar los Pokémon filtrados
+  container.innerHTML = ""; // Limpiamos el contenedor antes de mostrar los resultados
 
   pokemons.forEach((pokemon) => {
     try {
@@ -81,7 +81,7 @@ function renderPokemons(pokemons, container) {
       // Obtenemos el tipo principal del Pokémon
       const primaryType = pokemon.types[0].type.name;
 
-      // Asignamos un color de fondo según el tipo principal
+      // Asignamos un color de fondo según el tipo 
       const cardColor = typeColors[primaryType] || "#9e9e9e"; // Si no tiene color, usamos gris
       card.style.backgroundColor = cardColor;
 
@@ -97,19 +97,19 @@ function renderPokemons(pokemons, container) {
   });
 }
 
-// Función para filtrar los Pokémon por tipo (ahora solo se muestra el primer tipo)
+// Función para filtrar los Pokémon por tipo 
 function filterPokemonsByType(type) {
   try {
-    // Filtramos los Pokémon que tengan el tipo seleccionado como su primer tipo
+    // Filtramos los Pokémon que tengan el tipo seleccionado
     filteredPokemons = allPokemons.filter((pokemon) => 
-      pokemon.types[0].type.name === type // Solo el primer tipo del Pokémon
+      pokemon.types[0].type.name === type 
     );
 
     // Actualizamos la vista con los Pokémon filtrados
     const container = document.getElementById("pokemon-container");
     renderPokemons(filteredPokemons, container);
 
-    // Cambiar el fondo del body a un tono más claro del color seleccionado
+    // Cambiar el fondo del body a un tono más claro
     const selectedColor = typeColors[type] || "#9e9e9e"; // Si no tiene color, usamos gris
     document.body.style.backgroundColor = lightenColor(selectedColor, 30); // Aplicamos un tono más claro al fondo
   } catch (error) {
